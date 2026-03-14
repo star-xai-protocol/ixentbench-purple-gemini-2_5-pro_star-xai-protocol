@@ -2,13 +2,13 @@ Here is the specific **README.md** for the **Purple Agent**. This document is de
 
 ---
 
-# 🧠 GEMA Purple Agent (Gemini 2.5 Pro)
+# 🧠 GEMA Purple Agent (Gemini 2.5 Pro + STAR-XAI Protocol)
 
 This repository contains the logic for the **Purple Agent**, an advanced AI implementation designed to solve the **iXentBench** benchmark through neuro-symbolic reasoning and hierarchical planning.
 
 ## 🚀 Design Philosophy
 
-The Purple Agent does not rely on brute force or "black box" neural network instincts. Instead, it leverages **Gemini 2.5 Pro** to execute a **Counterfactual Thinking** cycle:
+The Purple Agent does not rely on brute force or "black box" neural network instincts. Instead, it leverages **Gemini 2.5 Pro + STAR-XAI Protocol** to execute a **Counterfactual Thinking** cycle:
 
 1. **Symbolic Perception:** Interprets the board state in JSON format (Ground Truth).
 2. **Mental Simulation:** Projects how gear orientations will change after a rotation.
@@ -40,7 +40,7 @@ To optimize your documentation for judges and other developers, here is the refi
 
 This version uses instructive tags to suggest where visual diagrams would best explain your technical achievements, such as the "Vigilante" patch system and the cognitive flow of your agent.
 
-🧠 GEMA Purple Agent (Gemini 2.5 Pro)
+🧠 GEMA Purple Agent (Gemini 2.5 Pro + STAR-XAI Protocol)
 This repository contains the logic for the Purple Agent, an advanced AI implementation designed to solve the CapsBench benchmark through neuro-symbolic reasoning and hierarchical planning.
 
 🚀 Design Philosophy
@@ -55,7 +55,7 @@ Hypothesis Validation: Verifies if a move generates a valid jump toward the exit
 🛠️ Repository Structure
 Based on the core deployment files:
 ```
-purple_ai.py: 🧠 Intelligence Core handling Gemini 2.5 Pro API and Prompt Engineering.
+purple_ai.py: 🧠 Intelligence Core handling Gemini 2.5 Pro API + STAR-XAI Protocol and Prompt Engineering.
 
 Dockerfile: 🐳 Containerization for consistent evaluation environments.
 
@@ -71,7 +71,7 @@ The agent communicates with the **Green Agent** using a strict format that separ
 
 ```json
 {
-  "agent_id": "Purple-Agent-gemini-2.5-pro",
+  "agent_id": "Purple-Agent-gemini-2.5-pro+STAR-XAI_Protocol",
   "command": "G@P13:b=1 ; G@P21+90",
   "reasoning": "Priority 5: Pre-move at P13 to align base before the +90 rotation. This creates a vertical jump path for M2 toward the exit.",
   "meta": {
@@ -83,7 +83,7 @@ The agent communicates with the **Green Agent** using a strict format that separ
 
 ## 🛡️ Stability: The "Vigilante" System
 
-Due to the intensive reasoning requirements of Gemini 2.5 Pro, we implemented a **Runtime Injection** script (`generate_compose.py`) to ensure environment stability:
+Due to the intensive reasoning requirements of Gemini 2.5 Pro + STAR-XAI Protocol, we implemented a **Runtime Injection** script (`generate_compose.py`) to ensure environment stability:
 
 * **Prevents Timeouts:** Maintains network heartbeats while the model processes complex reasoning.
 * **Ensures Persistence:** Guarantees that `results.json` files are written and validated before the container exits.
@@ -91,7 +91,7 @@ Due to the intensive reasoning requirements of Gemini 2.5 Pro, we implemented a 
 
 ## 📊 Performance Metrics
 
-* **Model:** Gemini 2.5 Pro
+* **Model:** Gemini 2.5 Pro + STAR-XAI Protocol
 * **Average Efficiency:** ~55-65 points (Level 1)
 * **Success Status:** Verified via automated CI/CD logs.
 
