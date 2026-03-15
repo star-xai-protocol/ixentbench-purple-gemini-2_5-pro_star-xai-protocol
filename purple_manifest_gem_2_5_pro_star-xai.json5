@@ -3,7 +3,7 @@
   
   metadata: {
     agentbeats_id: "019cee6c-387e-7d11-8286-27c6fc71b762",
-    name: "Purple-Gemini-2-5-Pro_STAR-XAI_Protocol"
+    name: "Purple-Gemini-2-5-Pro_STAR-XAI"
   },
 
   // Lo que el Purple NECESITA: Conectarse al Green Agent
@@ -23,7 +23,7 @@
 
   program: {
     
-    image: "ghcr.io/star-xai-protocol/ixentbench-purple-gemini-2_5-pro_star-xai-protocol:latest",
+    image: "ghcr.io/star-xai-protocol/ixentbench-purple-gemini-2_5-pro_star-xai:latest",
     
     // Fusión exacta de tu ENTRYPOINT y CMD
     entrypoint: ["python", "-u", "purple_ai.py", "--host", "0.0.0.0", "--port", "9009"],
