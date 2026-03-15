@@ -6,12 +6,11 @@
     name: "Purple-Gemini-2-5-Pro_STAR-XAI"
   },
 
-  // Lo que el Purple NECESITA: Conectarse al Green Agent
+  // Ajustado al nuevo estándar A2A
   slots: {
-    env_api: { kind: "http" }
+    proxy: { kind: "a2a", optional: true }
   },
 
-  // Lo que el usuario DEBE PASARLE: La API Key de Google
   config_schema: {
     type: "object",
     properties: {
@@ -22,38 +21,30 @@
   },
 
   program: {
-    
     image: "ghcr.io/star-xai-protocol/ixentbench-purple-gemini-2_5-pro_star-xai:latest",
     
-    // Fusión exacta de tu ENTRYPOINT y CMD
-    entrypoint: ["python", "-u", "purple_ai.py", "--host", "0.0.0.0", "--port", "9009"],
+    // Entrypoint como String plano, como pide la nueva versión
+    entrypoint: "python -u purple_ai.py --host 0.0.0.0 --port 9009",
     
     env: {
-      // Tus variables del Dockerfile
       PYTHONDONTWRITEBYTECODE: "1",
       PYTHONUNBUFFERED: "1",
-      
-      // La API Key inyectada desde la configuración
-      GOOGLE_API_KEY: "${config.google_api_key}",
-      
-      // LA MAGIA: Amber inyecta aquí la IP y puerto del Green Agent automáticamente
-      SERVER_URL: "${slots.env_api.url}"
+      GOOGLE_API_KEY: "${config.google_api_key}"
+      // Eliminamos SERVER_URL, el proxy A2A lo gestionará
     },
     
-    // Como tu Purple también expone el 9009, lo declaramos
     network: {
       endpoints: [
-        { name: "http", port: 9009, protocol: "http" }
+        { name: "a2a_endpoint", port: 9009 } // Nombre estandarizado
       ]
     }
   },
 
-  // Lo que el Purple OFRECE (su propio servidor HTTP)
   provides: {
-    api: { kind: "http", endpoint: "http" }
+    a2a: { kind: "a2a", endpoint: "a2a_endpoint" }
   },
 
-  exports: {
-    api: "api"
+  exports: { 
+    a2a: "a2a" 
   }
 }
