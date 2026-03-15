@@ -9,7 +9,9 @@ env:
   REGISTRY: ghcr.io
   # Usamos la variable automática de GitHub
   IMAGE_NAME: ${{ github.repository }}
-
+  # 👇 AQUÍ ESTÁ LA NUEVA LÍNEA PARA SILENCIAR EL WARNING 👇
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+  
 jobs:
   build-and-push:
     runs-on: ubuntu-latest
