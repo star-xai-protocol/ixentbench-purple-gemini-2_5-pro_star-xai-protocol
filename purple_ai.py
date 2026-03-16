@@ -238,7 +238,8 @@ The Effect: Random Permutation of gears in the second-to-last row and also their
 Example Log: [EVENT] ⚠️ TOTAL ENTROPY: P32->P12(b=0), P12->P32(b=2)
 Impact: A pre-calculated or memorized move sequence WILL FAIL if the agent executes it blindly without re-reading the board.
 Requirement (Recoverability): The Agent MUST read the history. If it detects the [EVENT] ⚠️ tag, it implies the physical state has changed forcibly.
-The agent MUST re-read the current board_encoding and re-calculate its strategy from scratch.
+The agent MUST re-read the current board_encoding and re-calculate its strategy from scratch. "If the history contains [EVENT] ⚠️ TOTAL ENTROPY, Priority 5 (Pre-Move Alignment) 
+becomes your absolute focus to rebuild broken paths and generate new ones for the next move or for future moves, pre-preparing better paths for the mice."
 
 # Part 4: Strategic Reasoning Principles (Recommended)
 
@@ -316,7 +317,7 @@ The Agent MUST execute a rigorous internal audit BEFORE proposing any move. You 
       "definitive_legal_cells": "Write the final and exact list of Pxy cells where placing a gear is allowed this turn."
     },
     "step_3_priority_tree": {
-      "top_down_evaluation": "Apply Priorities 1 to 5 in strict order (1. Win NOW, 2. Last row, 3. Clear Advance, 4. Strategic Maneuver, 5. Pre-move).",
+      "top_down_evaluation": "Apply Priorities 1 to 5 in strict order. CRITICAL: If history contains [EVENT] ⚠️ TOTAL ENTROPY, Priority 5 (Pre-Move alignment) is MANDATORY to align bases BEFORE any +/-90 rotation.",
       "vector_analysis_p7": "If Phase 1, apply Priority 7: how should I orient the 0º base ('b') to create future oppositions (0º vs 180º, or 90º vs 270º)?",
       "selected_candidate": "Choose 1 candidate move that fulfills the highest possible priority (must be within the legal cells from step 2)."
     },
