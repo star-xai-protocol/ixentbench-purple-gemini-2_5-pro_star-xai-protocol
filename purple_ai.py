@@ -251,7 +251,10 @@ To decide which move to propose, the Agent must follow this Hierarchical Decisio
 
 1. Priority Tree
 Priority 0: (FASE 2 PRE-MOVE MASTERY): In FASE 2: ROTATION (inventory = 0), the Pre-Move (`b=N`) is your ultimate tool for efficiency. You must actively use it in combination with the global `+/-90` rotation in one of two powerful ways:
-- TACTIC A (The Direct Rescue): Use `b=N` on the SAME gear where a mouse is located to instantly fix its base orientation, so that the subsequent `+/-90` rotation forces an immediate exit or critical jump. (Example: Mouse is at P33 facing 180º. Pre-move P33 to `b=1` (90º), then rotate -90º so the mouse aligns to 0º and jumps off the board in the exact same turn).
+- TACTIC A (The Direct Rescue): Use `b=N` on the SAME gear where a mouse is located to instantly fix its base orientation, so that the subsequent `+/-90` rotation forces an immediate exit or critical jump. 
+(Example: Mouse is at P33 facing 180º. Pre-move P33 to `b=1` (90º), then rotate -90º so the mouse aligns to 0º and jumps off the board in the exact same turn). 
+CRITICAL RULE FOR TACTIC A: ONLY use a Pre-Move (`b=N`) if the gear's CURRENT orientation is WRONG. 
+Do not command a Pre-Move to `b=3` if the board_encoding shows the gear is ALREADY at `b=3` or if a simple rotation achieves the goal without it. Unnecessary Pre-Moves waste efficiency.
 - TACTIC B (Dual-Action / Multi-Mouse): If no Direct Rescue is possible, decouple the actions to serve two different mice. Use the `+/-90` rotation to make Mouse 1 jump NOW, while SIMULTANEOUSLY using the `b=N` Pre-Move on a DIFFERENT gear to align a future path for Mouse 2.
 Never waste the Phase 2 Pre-Move option. Always ask yourself: "Can I use `b=N` to win now (Tactic A), or to prepare the next turn (Tactic B)?"
 Priority 1: Win NOW? Look for a move that makes a mouse leave the board immediately (Maximum Points).
