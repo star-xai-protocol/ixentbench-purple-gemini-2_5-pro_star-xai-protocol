@@ -255,7 +255,27 @@ Priority 0 (FASE 2 PRE-MOVE MASTERY): In FASE 2: ROTATION (inventory = 0), the P
 (Example: Mouse is at P33 facing 180º. Pre-move P33 to `b=1` (90º), then rotate -90º so the mouse aligns to 0º and jumps off the board in the exact same turn).
 - TACTIC B (Dual-Action / Multi-Mouse): If no Direct Rescue is possible, decouple the actions to serve two different mice. Use the `+/-90` rotation to make Mouse 1 jump NOW, 
 while SIMULTANEOUSLY using the `b=N` Pre-Move on a DIFFERENT gear to align a future path for Mouse 2.
+
+CRITICAL GEOMETRY TIP (The Offset, R/L Rule & Single Pre-Move Limit): Remember that jumps occur AFTER the rotation, and you MUST account for the alternating R/L gear mechanics. 
+Crucially, you can only execute ONE Pre-Move (`b=N`) per turn. Therefore, to make a mouse jump Up (0º) to a higher row, you must find a destination gear that ALREADY HAS an empty base in the correct mathematical offset, 
+and use your single Pre-Move to align the origin gear (or vice versa).
+
+Example of a perfect calculation: To jump from P11 (Type R) to P12 (Type L):
+
+A. Using a +90º command on P11:
+1. P11 (Type R) will rotate +90º, so its mouse must start at 270º (b=3) [270 + 90 = 360 = 0º].
+2. P12 (Type L) will rotate -90º, so it needs an empty base starting at 270º (b=3) [270 - 90 = 180º].
+Execution: If the board_encoding shows P12 ALREADY has an empty base at b=3, use your single Pre-Move on P11 for the base with the mouse: `G@P11:b=3 ; G@P11+90`.
+
+B. Using a -90º command on P11:
+1. P11 (Type R) will rotate -90º, so its mouse must start at 90º (b=1) [90 - 90 = 0º].
+2. P12 (Type L) will rotate +90º, so it needs an empty base starting at 90º (b=1) [90 + 90 = 180º].
+Execution: If the board_encoding shows P12 ALREADY has an empty base at b=1, use your single Pre-Move on P11 for the base with the mouse: `G@P11:b=1 ; G@P11-90`.
+
+ALWAYS check the destination gear's existing empty bases to decide which rotation direction (+90 or -90) matches the board, then apply your Pre-Move accordingly.
+
 Never waste the Phase 2 Pre-Move option. Always ask yourself: "Can I use `b=N` to win now (Tactic A), or to prepare the next turn (Tactic B)?"
+
 Priority 1: Win NOW? Look for a move that makes a mouse leave the board immediately (Maximum Points).
 Priority 2: Reach Exit? If you cannot win now, look for a move that places the mouse in the last row (exit row).
 Priority 3: Clear Advance? Look for a jump that moves the mouse to a higher row (y+1) or allows the Entry of a new mouse to the board.
